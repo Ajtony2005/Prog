@@ -2,74 +2,103 @@
 #include <vector>
 #include <cmath>
 
+using namespace std;
+using namespace genv;
 
 const int XX=800;
 const int YY=800;
 
-struct tomb{
-
-double x;
-double y;
-
+struct kigyo{
+    int x;
+    int y;
 };
 
+void palya(){
+    gout << color (150, 25, 200);
+    gout << move_to(0,0) << box(XX, 20);
+    gout << move_to(0,0) << box(20, YY);
+    gout << move_to(XX-20,0) << box(20, YY);
+    gout << move_to(0,YY-20) << box(XX, 20);
 
-using namespace std;
-using namespace genv;
+}
+void fej(int x, int y){
+    gout << color (255, 0, 0);
+    gout << move_to(x, y) << box(25, 25);
+    gout << color(0, 0, 0);
+    gout << move_to(x+5, y+5) << box(5,5);
+    gout << move_to(x+15, y+5) << box(5,5);
+
+}
+void torol(){
+    gout << color (0, 0, 0);
+    gout << move_to(0 , 0) << box(XX, YY);
+    gout << color (255, 255, 255);
+    palya();
+}
+
+bool ellenorzes(int x, int y){
+    if (x > XX-45 || x < 20) return 1;
+    else {if (y > YY-45 || y < 20) return 1;
+        else {return 0;}
+    }
+}
+void vege(){
+torol;
+gout << font("LiberationSans-Regular.ttf",40);
+gout << move_to(250, 350);
+gout << color (150, 25, 200);
+gout << text("GAME OVER!");
+gout << refresh;
+}
+
+
+
+
+
 int main()
 {
-    double c;
+
     gout.open(XX,YY);
-    tomb pont;
-    vector<tomb> pontok;
-    for (int i=0; i<100; i++){
-        pont.x=rand()%XX;
-        pont.y=rand()%YY;
-        pontok.push_back(pont);
-    }
     gin.timer(40);
-    for (tomb p : pontok){
-    gout << move_to(p.x, p.y) << line(2, 2);
-    }
-    event ev;
+    palya();
+    kigyo mozog;
+    mozog.x=400;
+    mozog.y=400;
+    fej(mozog.x, mozog.y);
     gout << refresh;
-    int x, y;
+    event ev;
+    int x=-5;
+    int y=0;
+    bool veg=0;
     while(gin >> ev && ev.keycode!=key_escape)
     {
-    if (ev.type == ev_mouse){
+        if (veg){
+            vege();
+        }else {
+        if (ev.keycode==key_up){
+            x=0;
+            y=-5;
+      }
+        if (ev.keycode==key_down){
+            x=0;
+            y=5;
+      }
+        if (ev.keycode==key_left){
+            x=-5;
+            y=0;
+      }
+        if (ev.keycode==key_right){
+            x=5;
+            y=0;
 
-        x=ev.pos_x;
-        y=ev.pos_y;
+      }
 
-        }
-        if (ev.keycode ==' '){
-        for (int i=0; i<100; i++){
-        pont.x=rand()%XX;
-        pont.y=0;
-        pontok.push_back(pont);
-    }
-        }
-    if (ev.type == ev_timer){
-            int i=0;
-            gout << color (0, 0, 0);
-        gout << move_to(0, 0) << box(XX, YY);
-        gout << refresh;
-        for (tomb & p : pontok){
-
-                gout << color (200, 200, i*5);
-                c=sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
-                p.x+=((x-p.x)/c*(c/40));
-                p.y+=((y-p.y)/c*(c/40));
-                gout << move_to(p.x, p.y) << line(2 , 2);
-                i++;
-
-    }
+    mozog.x+=x;
+    mozog.y+=y;
+    torol();
+    fej(mozog.x, mozog.y);}
+    if (ellenorzes(mozog.x, mozog.y)) veg=1;
     gout << refresh;
-
-    }
-
-
-
 
     }
 return 0;
