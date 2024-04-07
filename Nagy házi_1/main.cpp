@@ -14,23 +14,20 @@ class Koordinata {
 private:
     int x;
     int y;
-    Koordinata* kovetkezo;
 
 public:
-    Koordinata(int x, int y) : x(x), y(y), kovetkezo(nullptr) {}
-    Koordinata() : x(0), y(0), kovetkezo(nullptr) {}
+    Koordinata(int x, int y) : x(x), y(y) {}
+    Koordinata() : x(0), y(0) {}
     int getX() const { return x; }
     int getY() const { return y; }
     void setX(int new_x) { x = new_x; }
     void setY(int new_y) { y = new_y; }
-
-    friend class Jatek;
 };
 
 class Jatek {
 private:
-    vector<Koordinata*> kigyo;
-    Koordinata* gyumolcs = new Koordinata(200, 100);;
+    vector<Koordinata> kigyo;
+    Koordinata gyumolcs;
 
     void palya(){
         gout << color (150, 25, 200);
@@ -71,18 +68,20 @@ private:
         gout << move_to(0 , 0) << box(XX, YY);
         gout << color (255, 255, 255);
         palya();
-        barack(gyumolcs->x, gyumolcs->y);
+        barack(gyumolcs.getX(), gyumolcs.getY());
         kiiras();
     }
 
     void barack_ell(int x, int y){
-        if (x > gyumolcs->getX()-25 && x < gyumolcs->getX()+25 && y > gyumolcs->getY()-25 && y < gyumolcs->getY()+25){
-            gyumolcs->setX((rand()%(XX-100))+50);
-            gyumolcs->setY((rand()%(YY-100))+50);
+        if (x > gyumolcs.getX()-25 && x < gyumolcs.getX()+25 && y > gyumolcs.getY()-25 && y < gyumolcs.getY()+25){
+            gyumolcs.setX((rand()%(XX-100))+50);
+            gyumolcs.setY((rand()%(YY-100))+50);
             pont ++;
-            kigyo.push_back(new Koordinata(kigyo.back()->getX(), kigyo.back()->getY()));
+            kigyo.push_back(Koordinata(kigyo.back().getX(), kigyo.back().getY()));
         }
     }
+
+
 
     bool ellenorzes(int x, int y){
         return (x > XX-45 || x < 20 || y > YY-45 || y < 20);
@@ -97,23 +96,37 @@ private:
         gout << refresh;
     }
 
+
+
+
 public:
     Jatek() {
-        kigyo.push_back(new Koordinata(400, 400));
-        gyumolcs = new Koordinata(200, 100);
+        kigyo.push_back(Koordinata(400, 400));
+        gyumolcs = Koordinata(200, 100);
     }
 
     void futtat() {
         gout.open(XX,YY);
         gin.timer(40);
         palya();
-        fej(kigyo[0]->getX(), kigyo[0]->getY());
+        bool kezd=1;
+        fej(kigyo[0].getX(), kigyo[0].getY());
         gout << refresh;
         event ev;
         int x=-5;
         int y=0;
         bool veg=0;
         while(gin >> ev && ev.keycode!=key_escape) {
+            if (kezd) {
+            gout << font("LiberationSans-Regular.ttf",30);
+            gout << move_to(250, 350);
+            gout << color (150, 25, 200);
+            gout << text("Kezdéshez nyomd meg az Entert!");
+            gout << refresh;
+                if (ev.keycode==key_enter){
+                    kezd=0;
+                }
+            } else {
             if (veg){
                 vege();
             } else {
@@ -134,22 +147,32 @@ public:
                     y=0;
                 }
 
-                int vx=kigyo[0]->getX();
-                int vy=kigyo[0]->getY();
-                kigyo[0]->setX(vx + x);
-                kigyo[0]->setY(vy + y);
-                torol();
-                for (size_t i = 0; i < kigyo.size(); i++) {
-                    if (i==0) fej(kigyo[i]->getX(), kigyo[i]->getY());
-                    else {
-                            farok(kigyo[i]->getX(), kigyo[i]->getY());
-                }
-                }
-                if (ellenorzes(kigyo[0]->getX(), kigyo[0]->getY())) veg=1;
+            int vx = kigyo[0].getX();
+            int vy = kigyo[0].getY();
+            int prevX = vx;
+            int prevY = vy;
+            kigyo[0].setX(vx + x);
+            kigyo[0].setY(vy + y);
+            torol();
+            for (size_t i = 0; i < kigyo.size(); i++) {
+                if (i == 0) {
+                    fej(kigyo[i].getX(), kigyo[i].getY());
+                } else {
+                    prevX = kigyo[i].getX();
+                    prevY = kigyo[i].getY();
+                    farok(vx, vy);
+                    vx=prevX;
+                    vy=prevY;
+    }
+}
+
+
+                if (ellenorzes(kigyo[0].getX(), kigyo[0].getY())) veg=1;
                 gout << refresh;
-                barack_ell(kigyo[0]->getX(), kigyo[0]->getY());
+                barack_ell(kigyo[0].getX(), kigyo[0].getY());
             }
         }
+    }
     }
 };
 

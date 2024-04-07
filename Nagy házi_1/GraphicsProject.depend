@@ -1206,10 +1206,11 @@
 
 1677893378 d:\egyetem\prog\nagy házi_1\graphicslib\keytbl.h
 
-1712235006 source:d:\egyetem\prog\nagy házi_1\main.cpp
+1712527522 source:d:\egyetem\prog\nagy házi_1\main.cpp
 	"graphics.hpp"
 	<vector>
 	<cmath>
+	<cstdlib>
 
 1677893378 d:\egyetem\prog\nagy házi_1\include\graphics.hpp
 	<string>
