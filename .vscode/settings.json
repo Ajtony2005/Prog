@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "iostream": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Users/ajton/Documents/GitHub/Prog/Nagy házi_1/graph64_2024/graph64_2024/graphicslib"
 }
