@@ -1,0 +1,96 @@
+\documentclass[10pt, conference,a4paper]{ITKproc}
+\documentclass{article}
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[magyar]{babel}
+\usepackage{circuitikz}
+
+% correct bad hyphenation here
+
+\hyphenation{pre-sence vi-su-alized si-mu-la-tions mo-le-cu-lar se-ve-ral cha-rac-te-ris-tic CoNSEnsX}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Gps jegyzőkönyv}
+
+\author{\IEEEauthorblockN{Szauter Ajtony, Zsumbera Olivér}
+\IEEEauthorblockA{(Supervisor: Naszlady Márton Bese)\\
+Pázmány Péter Katolikus Egyetem, Információs Technológiai és Boinikai Kar\\
+ 1083, Budapest Práter utca 50/A\\
+2024.04.10 \\
+\texttt{szauter.ajtony@hallgato.ppke.hu}}
+\texttt{zsumbera.oliver@hallgato.ppke.hu}}
+}
+
+% make the title area
+\maketitle
+
+\begin{abstract}
+Megismerkedés a GPS-el. Mérés a friss tiszta levegőn a BUdapesten lévő Corvin negyedben a Práter Utca 50.ben lévő Pázmány Péter Katolikus Egyetem Információ Technológia és Bionika kara épülete kürül.
+
+\end{abstract}
+\begin{IEEEkeywords}
+Gps elmélete, története, müködése és mérése
+\end{IEEEkeywords}
+\IEEEpeerreviewmaketitle
+
+\section{Gps}
+
+A GPS (Global Positioning System) rövidítés a Globális Helymeghatározó Rendszert takarja, mely műholdak segítségével határozza meg a felhasználók földrajzi pozícióját. Manapság már elterjedt fogalom, de sokan nem tudják pontosan, hogyan is működik.
+
+A GPS rendszert az Egyesült Államok fejlesztette ki, a műholdak pontos pályainformációkat sugároznak, amiket a vevők fogadnak és számítással meg tudják határozni a távolságukat a műholdaktól. A távolságmérés alapján, trigonometriai eljárással meg lehet határozni a vevő pontos pozícióját a Földön.
+
+
+Jelenleg négy műholdas helymeghatározó rendszer is létezik (GNSS, Global Navigational Satellite System):
+
+Az amerikai NAVSTAR GPS (NAVigational Satellites for Timing And Ranging)
+Az orosz GLONASSZ rendszer
+Az Európai Uniós Galileo
+A kínai Compass (korábban Beidu)
+A Galileo rendszer kiépítése még zajlik, a NAVSTAR GPS viszont teljes lefedettséggel rendelkezik.
+
+A műholdas helymeghatározó rendszer működési elve
+A GPS rendszer műholdak sokaságából áll, melyek pontosan ismert pályákon keringenek a Föld körül. A vevő a műholdak által sugárzott jelek alapján méri a távolságát a műholdaktól. A távolságméréshez szükséges a műhold óra pontos ismerete, ami atomórákon alapul.
+
+Mivel a Föld forog, a műholdak pályája is folyamatosan változik, ezért a rendszer pontos időjelzéseket is ad, amikkel szinkronizálni lehet a vevő óráját.
+
+A pontos helymeghatározáshoz legalább négy műhold jele szükséges. A vevő a mért távolságok alapján kiszámítja a pozícióját a Földön. A számítás trigonometriai eljáráson alapul, azaz a vevő és a műholdak közötti távolságokból háromszögeket szerkesztve határozza meg a pozícióját.
+
+A GPS rendszer nagyon pontos, a mérési hiba általában néhány méter nagyságrendű. A pontosság függ a műholdak geometriájától, a vevő típusától és a környezeti feltételektől.
+
+A GPS rendszer alrendszerei
+A GPS rendszer három fő alrendszerből áll:
+
+Műholdak alrendszere: Jelenleg 24 műholdból áll, melyek 6 pályán keringenek a Föld körül. A műholdak jeleket sugároznak, amik a Földön lévő vevők számára elérhetőek.
+Földi állomások alrendszere: Öt ismert koordinátájú állomásból áll, melyek a műholdak pályáját követik és adatokat gyűjtenek róluk. Ezek az adatok szükségesek a műholdak pontos pozíciójának és órajelének meghatározásához.
+Felhasználók alrendszere: Tetszőleges számú GPS vevőberendezést foglal magában. A vevők fogadják a műholdak jeleit, és kiszámítják a pozíciójukat.
+A GPS mérési módszerek
+Két fő GPS mérési módszer létezik:
+
+Időméréses (kódméréses): A vevő a műhold által sugárzott kód alapján méri a távolságot a műholdig. Ez a módszer kevésbé pontos, mint a fázisméréses módszer, de kevésbé érzékeny a környezeti zavarokra.
+Fázisméréses: A vevő a vivőhullám fázisának mérésével határozza meg a távolságot a műholdig. Ez a módszer pontosabb, mint az időméréses módszer, de érzékenyebb a környezeti zavarokra.
+A mérési módszertől függően a GPS rendszer különböző pontosságot nyújthat. A kódméréses módszerrel 1-5 méteres pontosság érhető el, míg a fázisméréses módszerrel mm pontosság.
+
+
+A GPS rendszer alkalmazásai
+A GPS rendszert számos területen alkalmazzák, ahol fontos a pontos helymeghatározás. Íme néhány példa:
+
+Navigáció: A legismertebb felhasználási terület a navigáció. A GPS alapú autós navigációs rendszerek, túra GPS-ek és okostelefonok segítenek eljutni a kívánt célállomásra.
+Földmérés: A GPS-t a földmérők is használják a pontok koordinátáinak meghatározásához.
+** Térképészet:** A GPS segítségével pontosabb és részletesebb térképeket lehet készíteni.
+Közlekedés:​ A GPS-t a szállítási útvonalak optimalizálására és a járművek valós idejű követésére használják.
+​*Időzóna-beállítás:​ A GPS-vevők automatikusan beállíthatják az időzónát a felhasználó földrajzi helyzete alapján.
+​*Mentés:​ A GPS- alapú segélyhívások segíthetik a bajba jutott személyek megtalálását.
+​*Sport és fitness:​ A futók, kerékpározók és egyéb sportolók a GPS-t használhatják az edzéseik nyomon követésére.
+A GPS technológia folyamatosan fejlődik, és várhatóan egyre több új alkalmazási terület fog megjelenni a jövőben.
+
+
+\end{document}

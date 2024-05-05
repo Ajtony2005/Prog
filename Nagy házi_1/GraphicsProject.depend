@@ -1206,11 +1206,17 @@
 
 1677893378 d:\egyetem\prog\nagy házi_1\graphicslib\keytbl.h
 
-1712527522 source:d:\egyetem\prog\nagy házi_1\main.cpp
+1714643067 source:d:\egyetem\prog\nagy házi_1\main.cpp
 	"graphics.hpp"
 	<vector>
 	<cmath>
 	<cstdlib>
+	"os.hpp"
+	"szamolos.hpp"
+	"kivalaszto.hpp"
+	<fstream>
+	"Application.hpp"
+	"gomb.hpp"
 
 1677893378 d:\egyetem\prog\nagy házi_1\include\graphics.hpp
 	<string>
@@ -1619,4 +1625,68 @@
 1712520701 c:\users\ajton\documents\github\prog\nagy házi_1\include\graphics.hpp
 	<string>
 	<vector>
+
+1714642494 d:\egyetem\prog\nagy házi_1\os.hpp
+	"graphics.hpp"
+	"Application.hpp"
+
+1714642494 d:\egyetem\prog\nagy házi_1\szamolos.hpp
+	"os.hpp"
+
+1714642494 source:d:\egyetem\prog\nagy házi_1\szamolos.cpp
+	"graphics.hpp"
+	"szamolos.hpp"
+	"os.hpp"
+	<iostream>
+	<fstream>
+
+1714463617 source:d:\egyetem\prog\nagy házi_1\os.cpp
+	"graphics.hpp"
+	<iostream>
+	"os.hpp"
+	"Application.hpp"
+
+1714642494 source:d:\egyetem\prog\nagy házi_1\kivalaszto.cpp
+	"graphics.hpp"
+	"kivalaszto.hpp"
+	"os.hpp"
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	"Application.hpp"
+
+1714642494 d:\egyetem\prog\nagy házi_1\kivalaszto.hpp
+	<iostream>
+	<string>
+	"os.hpp"
+	<vector>
+
+1714464265 source:d:\egyetem\prog\nagy házi_1\application.cpp
+	"Application.hpp"
+	"graphics.hpp"
+	<iostream>
+	<vector>
+	<fstream>
+
+1714401780 d:\egyetem\prog\nagy házi_1\application.hpp
+	"os.hpp"
+	<iostream>
+	<vector>
+
+1714642494 d:\egyetem\prog\nagy házi_1\gomb.hpp
+	<iostream>
+	<string>
+	"os.hpp"
+	<vector>
+
+1714642449 source:d:\egyetem\prog\nagy házi_1\gomb.cpp
+	"graphics.hpp"
+	"gomb.hpp"
+	"os.hpp"
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	"Application.hpp"
 
