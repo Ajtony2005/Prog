@@ -6,13 +6,14 @@
 #include <vector>
 #include <fstream>
 #include "Application.hpp"
+#include <functional>
 
 
 using namespace std;
 using namespace genv;
 
 
-gomb::gomb(window* a, int x_kor, int y_kor, int meretx, int merety, string leszoveg, string felszoveg, bool megnyomva) : os(a, x_kor, y_kor, meretx, merety), leszoveg(leszoveg) , felszoveg(felszoveg), megnyomva(megnyomva) {}
+gomb::gomb(window* a, int x_kor, int y_kor, int meretx, int merety, string leszoveg, string felszoveg, function<void()> f) : os(a, x_kor, y_kor, meretx, merety), leszoveg(leszoveg) , felszoveg(felszoveg), f(f),  megnyomva(false) {}
 void gomb::rajzol(){
     gout << color (255, 255, 255);
     gout << move_to(x_kor, y_kor) << box(meretx, merety);
@@ -43,12 +44,19 @@ void gomb::rajzol(){
 void gomb::fogantyu(event ev){
 
     if (ev.button==btn_left){
-            if (megnyomva){
-                megnyomva=false;
-    } else {
-        megnyomva=true;
+        if (ev.pos_x > x_kor && ev.pos_x < x_kor + meretx){
+            if (ev.pos_y > y_kor && ev.pos_y < y_kor + merety){
+                if (megnyomva){
+                    megnyomva=false;
+                } else {
+                    megnyomva=true;
 
     }
+    f();
+
+        }
+    }
+
 
 }
 }

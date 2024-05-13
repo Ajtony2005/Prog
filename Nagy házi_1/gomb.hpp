@@ -5,14 +5,16 @@
 #include <string>
 #include "os.hpp"
 #include <vector>
+#include <functional>
 
 using namespace std;
 
 class gomb: public os{
     string leszoveg, felszoveg;
+    function<void()> f;
     bool megnyomva;
 public:
-    gomb(window* a, int x_kor, int y_kor, int meretx, int merety, string leszoveg, string felszoveg, bool megnyomva);
+    gomb(window* a, int x_kor, int y_kor, int meretx, int merety, string leszoveg, string felszoveg, function<void()> f);
     void rajzol();
     void fogantyu(genv::event ev);
     void mentes();

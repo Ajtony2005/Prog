@@ -7,7 +7,7 @@ using namespace std;
 using namespace genv;
 
 
-os::os(window* a, int x, int y, int mx, int my) : ablak(a), x_kor(x), y_kor(y), meretx(mx), merety(my){
+os::os(window* a, int x, int y, int mx, int my) : ablak(a), x_kor  (x), y_kor(y), meretx(mx), merety(my){
 
     a->osadas(this);
 

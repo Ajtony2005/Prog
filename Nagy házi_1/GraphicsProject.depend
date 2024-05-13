@@ -1206,7 +1206,7 @@
 
 1677893378 d:\egyetem\prog\nagy házi_1\graphicslib\keytbl.h
 
-1714643067 source:d:\egyetem\prog\nagy házi_1\main.cpp
+1715243227 source:d:\egyetem\prog\nagy házi_1\main.cpp
 	"graphics.hpp"
 	<vector>
 	<cmath>
@@ -1217,6 +1217,7 @@
 	<fstream>
 	"Application.hpp"
 	"gomb.hpp"
+	<functional>
 
 1677893378 d:\egyetem\prog\nagy házi_1\include\graphics.hpp
 	<string>
@@ -1640,7 +1641,7 @@
 	<iostream>
 	<fstream>
 
-1714463617 source:d:\egyetem\prog\nagy házi_1\os.cpp
+1714991710 source:d:\egyetem\prog\nagy házi_1\os.cpp
 	"graphics.hpp"
 	<iostream>
 	"os.hpp"
@@ -1662,7 +1663,7 @@
 	"os.hpp"
 	<vector>
 
-1714464265 source:d:\egyetem\prog\nagy házi_1\application.cpp
+1714942375 source:d:\egyetem\prog\nagy házi_1\application.cpp
 	"Application.hpp"
 	"graphics.hpp"
 	<iostream>
@@ -1674,13 +1675,14 @@
 	<iostream>
 	<vector>
 
-1714642494 d:\egyetem\prog\nagy házi_1\gomb.hpp
+1715004608 d:\egyetem\prog\nagy házi_1\gomb.hpp
 	<iostream>
 	<string>
 	"os.hpp"
 	<vector>
+	<functional>
 
-1714642449 source:d:\egyetem\prog\nagy házi_1\gomb.cpp
+1715004625 source:d:\egyetem\prog\nagy házi_1\gomb.cpp
 	"graphics.hpp"
 	"gomb.hpp"
 	"os.hpp"
@@ -1689,4 +1691,5 @@
 	<vector>
 	<fstream>
 	"Application.hpp"
+	<functional>
 
